@@ -1,21 +1,33 @@
 ﻿
+using System.Text.RegularExpressions;
 
-string input = Console.ReadLine();
-int iteration = Convert.ToInt32(input);
-int result = 0;
+string unput = Console.ReadLine();
+Regex regex0 = new Regex(@"0000000(\w*)");
+MatchCollection matches0 = regex0.Matches(unput);
+Regex regex1 = new Regex(@"1111111(\w*)");
+MatchCollection matches1 = regex1.Matches(unput);
 
-for  (int i = 0; i < iteration; i++)
+if (matches0.Count > 0 || matches1.Count > 0)
 {
-string number = Console.ReadLine();
-    string[] numberArr = number.Split(new char[] { ' ' });
-    int a = Convert.ToInt32(numberArr[0]);
-    int b = Convert.ToInt32(numberArr[1]);
-    int c = Convert.ToInt32(numberArr[2]);
-
-    result = result + (a + b + c);
+        Console.WriteLine("YES");
 }
-if (result == 0)
+else
 {
-    Console.WriteLine("YES");
+    Console.WriteLine("NO");
 }
-else Console.WriteLine("NO");
+
+
+
+
+//string s = "Бык тупогуб, тупогубенький бычок, у быка губа бела была тупа";
+//Regex regex = new Regex(@"туп(\w*)");
+//MatchCollection matches = regex.Matches(s);
+//if (matches.Count > 0)
+//{
+//    foreach (Match match in matches)
+//        Console.WriteLine(match.Value);
+//}
+//else
+//{
+//    Console.WriteLine("Совпадений не найдено");
+//}
