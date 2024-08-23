@@ -1,20 +1,20 @@
 ﻿
+
+
 using System.Text.RegularExpressions;
 
-string unput = Console.ReadLine();
-Regex regex0 = new Regex(@"0000000(\w*)");
-MatchCollection matches0 = regex0.Matches(unput);
-Regex regex1 = new Regex(@"1111111(\w*)");
-MatchCollection matches1 = regex1.Matches(unput);
+string input = Console.ReadLine();
 
-if (matches0.Count > 0 || matches1.Count > 0)
+//var inputArr = input.ToCharArray();
+
+int quantityOf4 = input.Where( c => c.Equals('4')).Count();
+int quantityOf7 = input.Where(c => c.Equals('7')).Count();
+
+int result = quantityOf4 + quantityOf7;
+
+if (result == 4 || result == 7)
 {
-        Console.WriteLine("YES");
+    Console.WriteLine("YES");
 }
 else
-{
     Console.WriteLine("NO");
-}
-
-
-
